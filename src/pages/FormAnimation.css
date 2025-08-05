@@ -1,0 +1,54 @@
+/* FormAnimation.css */
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+  background-color: #faf9f6; /* This sets the background for the whole page if used globally */
+}
+
+.container {
+  /* This container needs to be part of the normal document flow */
+  position: relative; /* Important: Make it relative so children can be absolute relative to this */
+  top: auto; /* Remove */
+  left: auto; /* Remove */
+  transform: none; /* Remove */
+  /* Add margin/padding to position it within your main page layout */
+  margin: 50px auto; /* Example: center it with some vertical space */
+  max-width: 800px; /* Adjust this to fit your main page's content width */
+  height: auto; /* Allow height to adjust to content */
+  overflow: hidden; /* Crucial to contain the SVG's large width */
+  padding-bottom: 500px; /* Add extra padding to make space for the tall SVG content */
+  /* You might need to adjust this padding based on the actual height of the SVG. */
+}
+
+svg,
+.form-container {
+  /* These elements will now be positioned absolutely *within* .container */
+  position: absolute;
+  top: 50%; /* Keep for centering vertically relative to .container */
+  left: 50%; /* Keep for centering horizontally relative to .container */
+  transform: translate(-50%, -50%); /* Keep for perfect centering */
+}
+
+.form-container {
+  width: 270px; /* Keep the width of the form itself */
+  z-index: 2; /* Ensure the form is above the SVG */
+}
+
+svg {
+  width: 1000px; /* This is the problematic width. */
+  pointer-events: none;
+  stroke-width: 1.2px;
+  stroke: #000000;
+  fill: none;
+  z-index: 1; /* Ensure SVG is behind the form */
+  /* *** Critical Change for SVG Responsiveness and Containment *** */
+  max-width: 100%; /* Make the SVG responsive to its parent's width */
+  height: auto; /* Maintain aspect ratio */
+  /* You might also need to adjust its position more carefully if it doesn't look right */
+  /* For example, if its top:50% still places it too high/low for your needs. */
+}
+
+/* ... rest of your FormAnimation.css ... */
