@@ -48,7 +48,7 @@ const OrderDetails = ({ user }) => {
           `OrderDetails: Attempting to fetch order ${orderId} for user ${user.email}`
         ); // DEBUG LOG
         const response = await axios.get(
-          `http://localhost:5000/followerApi/getOrder/${orderId}`
+          `https://follower-cart-backend02.onrender.com/followerApi/getOrder/${orderId}`
         );
         const fetchedOrder = response.data;
         console.log("OrderDetails: Raw fetched order data:", fetchedOrder); // DEBUG LOG

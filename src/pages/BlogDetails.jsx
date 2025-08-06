@@ -13,7 +13,7 @@ const BlogDetails = () => {
     const fetchBlogPost = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/followerApi/blogPosts/${id}`
+          `https://follower-cart-backend02.onrender.com/followerApi/blogPosts/${id}`
         );
         setPost(res.data.post);
       } catch (err) {

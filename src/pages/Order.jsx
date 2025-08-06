@@ -43,7 +43,7 @@ const Order = ({ user }) => {
       setLoading(true);
       // IMPORTANT CHANGE: Call userOrders API with the logged-in user's email
       const response = await axios.get(
-        `http://localhost:5000/followerApi/userOrders/${user.email}`
+        `https://follower-cart-backend02.onrender.com/followerApi/userOrders/${user.email}`
       );
       setOrders(response.data.orders || []);
       setActionMessage(null); // Clear messages on successful fetch
@@ -156,7 +156,7 @@ const Order = ({ user }) => {
 
     try {
       const response = await axios.patch(
-        `http://localhost:5000/followerApi/updateOrder/${orderToCancel.id}`,
+        `https://follower-cart-backend02.onrender.com/followerApi/updateOrder/${orderToCancel.id}`,
         { status: "Cancelled" }
       );
       console.log("Order cancelled:", response.data);

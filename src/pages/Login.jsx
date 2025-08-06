@@ -57,7 +57,7 @@ const Login = ({ onLogin }) => {
     try {
       if (isLogin) {
         const res = await axios.post(
-          "http://localhost:5000/followerApi/login",
+          "https://follower-cart-backend02.onrender.com/followerApi/login",
           {
             email: formData.email,
             password: formData.password,
@@ -83,13 +83,16 @@ const Login = ({ onLogin }) => {
           navigate("/");
         }
       } else {
-        await axios.post("http://localhost:5000/followerApi/signup", {
-          name: formData.name,
-          email: formData.email,
-          password: formData.password,
-          role: formData.role,
-          isBanned: false,
-        });
+        await axios.post(
+          "https://follower-cart-backend02.onrender.com/followerApi/signup",
+          {
+            name: formData.name,
+            email: formData.email,
+            password: formData.password,
+            role: formData.role,
+            isBanned: false,
+          }
+        );
 
         toast.success("Signup successful! Please log in.");
         setIsLogin(true);
@@ -108,9 +111,12 @@ const Login = ({ onLogin }) => {
     setResetEmailSent(false);
 
     try {
-      await axios.post("http://localhost:5000/followerApi/forgotpassword", {
-        email: formData.email,
-      });
+      await axios.post(
+        "https://follower-cart-backend02.onrender.com/followerApi/forgotpassword",
+        {
+          email: formData.email,
+        }
+      );
       setResetEmailSent(true);
       toast.info(
         "If an account with that email exists, a password reset link has been sent."
@@ -125,7 +131,8 @@ const Login = ({ onLogin }) => {
   // NEW: Function to handle Google Login redirection
   const handleGoogleLogin = () => {
     // Redirect the user to the backend Google OAuth route
-    window.location.href = "http://localhost:5000/followerApi/auth/google";
+    window.location.href =
+      "https://follower-cart-backend02.onrender.com/followerApi/auth/google";
   };
 
   return (

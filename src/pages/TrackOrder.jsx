@@ -117,7 +117,7 @@ const TrackOrder = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/followerApi/getOrder/${orderId}`
+        `https://follower-cart-backend02.onrender.com/followerApi/getOrder/${orderId}`
       );
 
       if (!response.ok) {

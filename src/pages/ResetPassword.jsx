@@ -31,7 +31,7 @@ const ResetPassword = () => {
     try {
       // UPDATED: Corrected the API endpoint URL for the reset password request.
       const res = await axios.patch(
-        `http://localhost:5000/followerApi/resetpassword/${token}`,
+        `https://follower-cart-backend02.onrender.com/followerApi/resetpassword/${token}`,
         {
           newPassword: formData.newPassword,
           confirmNewPassword: formData.confirmNewPassword,

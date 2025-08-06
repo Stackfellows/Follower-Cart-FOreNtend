@@ -37,7 +37,7 @@ const Blog = ({ user }) => {
     setError(null);
     try {
       const res = await axios.get(
-        "http://localhost:5000/followerApi/blogPosts"
+        "https://follower-cart-backend02.onrender.com/followerApi/blogPosts"
       );
       const fetchedData = res.data || [];
 
@@ -91,7 +91,7 @@ const Blog = ({ user }) => {
       }
 
       await axios.post(
-        "http://localhost:5000/followerApi/blogPosts",
+        "https://follower-cart-backend02.onrender.com/followerApi/blogPosts",
         formData,
         {
           headers: {
@@ -152,7 +152,7 @@ const Blog = ({ user }) => {
       }
 
       await axios.put(
-        `http://localhost:5000/followerApi/blogPosts/${id}`,
+        `https://follower-cart-backend02.onrender.com/followerApi/blogPosts/${id}`,
         formData,
         {
           headers: {
@@ -176,9 +176,12 @@ const Blog = ({ user }) => {
 
     const token = localStorage.getItem("token");
     try {
-      await axios.delete(`http://localhost:5000/followerApi/blogPosts/${id}`, {
-        headers: { "x-auth-token": token },
-      });
+      await axios.delete(
+        `https://follower-cart-backend02.onrender.com/followerApi/blogPosts/${id}`,
+        {
+          headers: { "x-auth-token": token },
+        }
+      );
       alert("Post deleted.");
       fetchBlogPosts();
     } catch (err) {

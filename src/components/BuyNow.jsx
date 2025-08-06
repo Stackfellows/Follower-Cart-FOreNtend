@@ -433,7 +433,7 @@ const BuyNow = ({ user, service = "Followers", platform = "Instagram" }) => {
 
     try {
       const res = await axios.post(
-        "https://follower-cart-bacend1.onrender.com/followerApi/createOrder",
+        "https://follower-cart-backend02.onrender.com/followerApi/createOrder",
         data,
         { timeout: 15000 }
       );

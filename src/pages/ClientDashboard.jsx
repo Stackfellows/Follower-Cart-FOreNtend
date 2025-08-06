@@ -91,7 +91,7 @@ const ClientDashboard = ({ user, setUser }) => {
 
         // Making the API call to your backend
         const response = await axios.get(
-          `http://localhost:5000/followerApi/userOrders/${user.email}`
+          `https://follower-cart-backend02.onrender.com/followerApi/userOrders/${user.email}`
         );
 
         // IMPORTANT FIX: Access response.data.orders as the backend sends it
@@ -166,7 +166,7 @@ const ClientDashboard = ({ user, setUser }) => {
 
     try {
       const response = await axios.put(
-        `http://localhost:5000/followerApi/updateUser/${user.email}`, // Assuming your backend has an update endpoint by email
+        `https://follower-cart-backend02.onrender.com/followerApi/updateUser/${user.email}`, // Assuming your backend has an update endpoint by email
         {
           name: fullName,
           phoneNumber: phoneNumber,

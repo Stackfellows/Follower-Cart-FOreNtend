@@ -29,7 +29,7 @@ const RefundPolicy = () => {
     try {
       // Reverted the API endpoint back to the localhost URL as requested.
       const res = await axios.post(
-        "http://localhost:5000/followerApi/refundRequests",
+        "https://follower-cart-backend02.onrender.com/followerApi/refundRequests",
         formData
       );
       toast.success(res.data.msg);

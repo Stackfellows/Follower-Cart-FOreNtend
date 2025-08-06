@@ -43,7 +43,7 @@ const PaymentMethodForm = () => {
       try {
         setLoading(true); // Start loading
         const response = await axios.get(
-          `http://localhost:5000/followerApi/getOrder/${orderId}`
+          `https://follower-cart-backend02.onrender.com/followerApi/getOrder/${orderId}`
         );
         setOrder(response.data); // Set the fetched order data
         console.log("PaymentMethodForm: Fetched order data successfully.");
@@ -113,7 +113,7 @@ const PaymentMethodForm = () => {
         formData.append("image", screenshotFile); // 'image' is the field name expected by multer on backend
 
         const uploadResponse = await axios.post(
-          "http://localhost:5000/followerApi/upload",
+          "https://follower-cart-backend02.onrender.com/followerApi/upload",
           formData,
           {
             headers: {
@@ -155,7 +155,7 @@ const PaymentMethodForm = () => {
       };
 
       const paymentCreationResponse = await axios.post(
-        "http://localhost:5000/followerApi/createPayment",
+        "https://follower-cart-backend02.onrender.com/followerApi/createPayment",
         paymentData
       );
 
