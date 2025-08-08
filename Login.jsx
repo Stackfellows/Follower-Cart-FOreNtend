@@ -22,28 +22,7 @@ const Login = ({ onLogin }) => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
-  // NEW: Handle Google OAuth token from URL
-  useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const token = urlParams.get("token");
-    const role = urlParams.get("role");
-
-    if (token) {
-      // 🔧 FIX: Save full user object to localStorage under "user"
-      const userData = { token, role };
-      localStorage.setItem("user", JSON.stringify(userData)); // ✅ THIS LINE FIXES IT
-
-      toast.success("Login successful!");
-
-      if (role === "admin") {
-        navigate("/admin-dashboard", { replace: true });
-      } else if (role === "user") {
-        navigate("/client-dashboard", { replace: true });
-      } else {
-        navigate("/", { replace: true });
-      }
-    }
-  }, [navigate]);
+  // The useEffect hook for handling Google OAuth token has been removed.
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -103,7 +82,6 @@ const Login = ({ onLogin }) => {
     }
   };
 
-  // UPDATED: 'forgotpassword' API endpoint typo corrected.
   const handleForgotPassword = async (e) => {
     e.preventDefault();
     setIsLoading(true);
@@ -127,12 +105,7 @@ const Login = ({ onLogin }) => {
     }
   };
 
-  // NEW: Function to handle Google Login redirection
-  const handleGoogleLogin = () => {
-    // Redirect the user to the backend Google OAuth route
-    window.location.href =
-      "https://follower-cart-backend02.onrender.com/followerApi/auth/google";
-  };
+  // The handleGoogleLogin function has been removed.
 
   return (
     <div
@@ -315,32 +288,11 @@ const Login = ({ onLogin }) => {
                 {isLogin ? "Sign up" : "Sign in"}
               </button>
             </div>
-            {/* NEW: Google Login button */}
-            {isLogin && !showForgotPassword && (
-              <div className="mt-6">
-                <div className="relative flex items-center justify-center my-4">
-                  <div className="flex-grow border-t border-gray-600"></div>
-                  <span className="flex-shrink mx-4 text-gray-400">OR</span>
-                  <div className="flex-grow border-t border-gray-600"></div>
-                </div>
-                <button
-                  onClick={handleGoogleLogin}
-                  className="w-full flex items-center justify-center gap-2 bg-gray-700 text-white py-2 rounded-lg hover:bg-gray-800 transition duration-300"
-                  disabled={isLoading}
-                >
-                  <img
-                    src="https://www.vectorlogo.zone/logos/google/google-icon.svg"
-                    alt="Google"
-                    className="w-5 h-5"
-                  />
-                  <span>Sign in with Google</span>
-                </button>
-              </div>
-            )}
+            {/* The Google Login button and its container have been removed. */}
           </div>
           {/* Copyright Section */}
           <div className="mt-auto text-sm text-center text-gray-500">
-            &copy; 2024 FollowersCart. All rights reserved.
+            &copy; 2025 FollowersCart. All rights reserved.
           </div>
         </div>
         {/* Right Section (Image/Branding) */}
